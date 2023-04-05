@@ -34,11 +34,12 @@ class CompaniesController extends Controller
     {
         //
         $request->validate(Company::$rules);
-        $logoUrl = $request->file('logo')->store('app', ['disk' => 'public']);
+        $logoUrl = $request->file('logo')->store('companies', ['disk' => 'public']);
         $company = new Company;
         $company->fill($request->post());
         $company['logo'] = $logoUrl;
         $company->save();
+        return redirect()->route('companies.index');
     }
 
     /**
@@ -55,6 +56,8 @@ class CompaniesController extends Controller
     public function edit(string $id)
     {
         //
+        $company = Company::findOrFail($id);
+        return view('companies.edit', compact('company'));
     }
 
     /**
@@ -63,6 +66,13 @@ class CompaniesController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $company = Company::findOrFail($id);
+        $request->validate(Company::$rules);
+        $logoUrl = $request->file('logo')->store('companies', ['disk' => 'public']);
+        $company->fill($request->post());
+        $company['logo'] = $logoUrl;
+        $company->save();
+        return redirect()->route('companies.index');
     }
 
     /**
@@ -71,5 +81,8 @@ class CompaniesController extends Controller
     public function destroy(string $id)
     {
         //
+        $company = Company::findOrFail($id);
+        Company::destroy($id);
+        return redirect()->route('companies.index')->with('success', 'Record has been deleted successfully!');
     }
 }
