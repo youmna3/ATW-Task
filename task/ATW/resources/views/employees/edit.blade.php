@@ -28,7 +28,7 @@
                 @endforeach
             </select>
             <label>Employee Email</label>
-            <input class="form form-control" name="email" value="{{ old('email', $employee->company_id) }}" /><br />
+            <input class="form form-control" name="email" value="{{ old('email', $employee->email) }}" /><br />
             @error('email')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
