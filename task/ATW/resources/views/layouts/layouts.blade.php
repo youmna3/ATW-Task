@@ -55,9 +55,10 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-
-                        <a href="#" class="d-block">name</a>
-                        <a href="#" class="d-block">email</a>
+                        @if (Auth::user())
+                            <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                            <a href="#" class="d-block">{{ Auth::user()->email }}</a>
+                        @endif
 
                     </div>
                 </div>
@@ -68,7 +69,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a class="nav-link">
+                            <a href="{{ url('/companies') }}"class="nav-link">
                                 <i class="nav-icon fa fa-bars"></i>
                                 <p>Companies</p>
                             </a>
@@ -80,9 +81,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <form class="nav-link" action="{{ url('logout') }}" method="POST">
+                                {{ csrf_field() }}
                                 <i class="nav-icon fa fa-bars"><button type="submit">Logout</button></i>
-                            </a>
+                            </form>
                         </li>
                     </ul>
 
