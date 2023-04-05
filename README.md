@@ -7,3 +7,11 @@
 - Run `php artisan migrate`
 - Run `php artisan db:seed` to run seeders/
 - Run `php artisan serve`
+
+## Install breeze
+
+- Run `composer require laravel/breeze --dev`
+- Run `php artisan breeze:install`
+- Run `artisan migrate` if any
+- Run `npm install`
+- Run `npm run dev`

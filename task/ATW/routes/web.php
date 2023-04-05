@@ -33,6 +33,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 Route::middleware(['auth'])->group(function () {
-    Route::resource('companies', CompaniesController::class);
+    Route::resource('companies/{lang}', CompaniesController::class);
     Route::resource('employees', EmployeesController::class);
 });
