@@ -13,7 +13,7 @@ class Employee extends Model
         'last_name' => 'required',
         'company_id' => 'required',
         'email' => 'required|email',
-        'phone' => 'required|numeric|max:11',
+        'phone' => 'required|numeric|min:11',
 
     ];
     protected $guarded = [];
