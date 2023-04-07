@@ -11,7 +11,7 @@
         <thead class="thead-dark">
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>{{ __('messages.name') }}</th>
                 <th>Email</th>
                 <th>logo</th>
                 <th>Website</th>

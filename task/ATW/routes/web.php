@@ -15,7 +15,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/lang/{lang}', function (string $lang) {
+    // Set the locale configuration option to the selected language
+    App::setLocale($lang);
+    //dd(App::getLocale());
 
+    // Store the selected language in a session variable
+    session(['lang' => $lang]);
+
+    //dd(session('lang'));
+    return back();
+});
 
 Route::get('/', function () {
     return view('admin');

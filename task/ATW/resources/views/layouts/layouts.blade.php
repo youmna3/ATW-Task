@@ -32,14 +32,15 @@
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{{ url('/') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ url('admin') }}" class="nav-link">Home</a>
+                    <a href="{{ url('lang/en') }}"class="nav-link">English</a>
                 </li>
-
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{{ url('lang/es') }}"class="nav-link">Spanish</a>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -71,7 +72,7 @@
                         <li class="nav-item">
                             <a href="{{ url('/companies') }}"class="nav-link">
                                 <i class="nav-icon fa fa-bars"></i>
-                                <p>Companies</p>
+                                <p>{{ __('messages.companies') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
